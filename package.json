@@ -1,9 +1,10 @@
 {
   "name": "drizzle",
-  "module": "src/main.ts",
+  "module": "src/main.tsx",
   "type": "module",
   "scripts": {
     "dev": "bun --watch .",
+    "start": "bun .",
     "db:generate": "bun drizzle-kit generate",
     "db:push": "bun drizzle-kit push"
   },
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.8.1",
-    "drizzle-orm": "^0.32.2"
+    "drizzle-orm": "^0.32.2",
+    "hono": "^4.5.3"
   }
 }

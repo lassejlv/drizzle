@@ -1,4 +1,5 @@
 interface Env {
+  readonly PORT: string;
   readonly TURSO_CONNECTION_URL: string;
   readonly TURSO_AUTH_TOKEN: string;
 }
