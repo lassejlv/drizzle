@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD `updatedAt` text DEFAULT (current_timestamp) NOT NULL;
