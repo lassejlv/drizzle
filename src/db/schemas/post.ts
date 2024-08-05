@@ -1,4 +1,4 @@
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { UserTable } from "./user";
 
@@ -15,6 +15,13 @@ export const PostTable = sqliteTable("posts", {
     .default(sql`(current_timestamp)`)
     .$onUpdate(() => sql`(current_timestamp)`),
 });
+
+export const postsRelations = relations(PostTable, ({ one }) => ({
+  author: one(UserTable, {
+    fields: [PostTable.userId],
+    references: [UserTable.id],
+  }),
+}));
 
 export type InsertPost = typeof PostTable.$inferInsert;
 export type SelectPost = typeof PostTable.$inferSelect;
